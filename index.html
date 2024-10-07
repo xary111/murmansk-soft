@@ -1,3 +1,4 @@
+`html
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -41,6 +42,7 @@
             z-index: 1;
             width: 100%;
             max-width: 400px;
+            margin-bottom: 20px;
         }
 
         .registration-form h2 {
@@ -72,6 +74,30 @@
         .registration-form button:hover {
             background-color: #2980b9;
         }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .menu-button {
+            background-color: rgba(50, 50, 50, 0.8);
+            color: white;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        .menu-button:hover {
+            background-color: rgba(50, 50, 50, 1);
+        }
     </style>
 </head>
 
@@ -89,22 +115,32 @@
         </form>
     </div>
 
+    <div class="menu" id="menu" style="display: none;">
+        <button class="menu-button" onclick="navigateTo('statistics.html')">Статистика</button>
+        <button class="menu-button" onclick="navigateTo('guide.html')">Руководство</button>
+        <button class="menu-button" onclick="navigateTo('help.html')">Помощь</button>
+    </div>
+
     <script>
         document.getElementById('registerForm').addEventListener('submit', function (event) {
             event.preventDefault();
 
             const name = document.querySelector('input[type="text"]').value;
-            const email = document.querySelector('input[type="email"]').value;
-            const password = document.querySelector('input[type="password"]').value;
-
-            // Имитация успешной регистрации
-            alert(`Регистрация успешна! Добро пожаловать, ${name}!`);
-
-            // Здесь вы можете добавить перенаправление, если необходимо
-            // window.location.href = 'login.html'; // Например, перенаправление на страницу входа
+// Имитация успешной регистрации
+            alert(Регистрация успешна! Добро пожаловать, ${name}!);
+            
+            // Показать меню после успешной регистрации
+            document.getElementById('menu').style.display = 'flex';
+            document.querySelector('.registration-form').style.display = 'none'; // Скрыть форму регистрации
         });
+
+        function navigateTo(page) {
+            // Здесь вы можете добавить логику для перехода на другие страницы
+            alert(Переход к ${page}); // Имитация перехода (замените на window.location.href = page; для реального перехода)
+        }
     </script>
 
 </body>
 
 </html>
+`
