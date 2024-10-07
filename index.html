@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,22 +8,49 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background: linear-gradient(to bottom, #f0f8ff, #e0f7fa);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            overflow: hidden;
+            position: relative;
         }
+
+        .snowflake {
+            position: absolute;
+            top: -10%;
+            color: white;
+            font-size: 1em;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
         .registration-form {
-            background: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
         }
+
         .registration-form h2 {
             margin-bottom: 20px;
+            color: #2c3e50;
         }
+
         .registration-form input {
             width: 100%;
             padding: 10px;
@@ -30,38 +58,56 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+
         .registration-form button {
             width: 100%;
             padding: 10px;
-            background-color: #28a745;
+            background-color: #3498db;
             border: none;
             color: white;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
+
         .registration-form button:hover {
-            background-color: #218838;
+            background-color: #2980b9;
         }
     </style>
 </head>
+
 <body>
 
-<div class="registration-form">
-    <h2>Регистрация</h2>
-    <form id="registerForm">
-        <input type="text" placeholder="Введите ваше имя" required>
-        <input type="email" placeholder="Введите ваш email" required>
-        <input type="password" placeholder="Введите пароль" required>
-        <button type="submit">Зарегистрироваться</button>
-    </form>
-</div>
+    <div class="registration-form">
+        <h2>Регистрация</h2>
+        <form id="registerForm">
+            <input type="text" placeholder="Введите ваше имя" required>
+            <input type="email" placeholder="Введите ваш email" required>
+            <input type="password" placeholder="Введите пароль" required>
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+    </div>
 
-<script>
-    document.getElementById('registerForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        alert('Регистрация завершена!'); // Здесь можно добавить логику обработки регистрации
-    });
-</script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            alert('Регистрация завершена!'); // Здесь можно добавить логику обработки регистрации
+        });
+    </script>
+
+    <script>
+        // Создание снежинок
+        for (let i = 0; i < 100; i++) {
+            const snowflake = document.createElement('div');
+            snowflake.innerHTML = '❄';
+            snowflake.className = 'snowflake';
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+            snowflake.style.opacity = Math.random();
+            document.body.appendChild(snowflake);
+        }
+    </script>
 
 </body>
+
 </html>
