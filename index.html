@@ -1,4 +1,3 @@
-`html
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -16,7 +15,6 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            position: relative;
             color: white;
             flex-direction: column;
         }
@@ -37,9 +35,6 @@
             background: rgba(0, 0, 0, 0.7);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            position: relative;
-            z-index: 1;
             width: 100%;
             max-width: 400px;
             margin-bottom: 20px;
@@ -68,15 +63,10 @@
             color: white;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .registration-form button:hover {
-            background-color: #2980b9;
         }
 
         .menu {
-            display: flex;
+            display: none;
             flex-direction: column;
             align-items: center;
             margin-top: 20px;
@@ -90,13 +80,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
             font-size: 1.2em;
-            text-align: center;
-        }
-
-        .menu-button:hover {
-            background-color: rgba(50, 50, 50, 1);
         }
     </style>
 </head>
@@ -115,7 +99,7 @@
         </form>
     </div>
 
-    <div class="menu" id="menu" style="display: none;">
+    <div class="menu" id="menu">
         <button class="menu-button" onclick="navigateTo('statistics.html')">Статистика</button>
         <button class="menu-button" onclick="navigateTo('guide.html')">Руководство</button>
         <button class="menu-button" onclick="navigateTo('help.html')">Помощь</button>
@@ -124,23 +108,17 @@
     <script>
         document.getElementById('registerForm').addEventListener('submit', function (event) {
             event.preventDefault();
-
             const name = document.querySelector('input[type="text"]').value;
-// Имитация успешной регистрации
-            alert(Регистрация успешна! Добро пожаловать, ${name}!);
-            
-            // Показать меню после успешной регистрации
+            alert(`Регистрация успешна! Добро пожаловать, ${name}!`);
             document.getElementById('menu').style.display = 'flex';
-            document.querySelector('.registration-form').style.display = 'none'; // Скрыть форму регистрации
+            document.querySelector('.registration-form').style.display = 'none';
         });
 
         function navigateTo(page) {
-            // Здесь вы можете добавить логику для перехода на другие страницы
-            alert(Переход к ${page}); // Имитация перехода (замените на window.location.href = page; для реального перехода)
+            alert(`Переход к ${page}`);
         }
     </script>
 
 </body>
 
 </html>
-`
