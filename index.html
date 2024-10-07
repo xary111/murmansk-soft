@@ -8,14 +8,16 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #f0f8ff, #e0f7fa);
+            background: url('https://images.unsplash.com/photo-1541886664-9b4d9d0b9b45') no-repeat center center fixed;
+            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            overflow: hidden;
             position: relative;
+            color: white;
+            flex-direction: column;
         }
 
         .snowflake {
@@ -37,18 +39,32 @@
             }
         }
 
+        .header {
+            background-color: rgba(0, 0, 128, 0.8); /* Синий фон */
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            width: 100%;
+            max-width: 400px;
+        }
+
         .registration-form {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(0, 0, 0, 0.7);
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             position: relative;
             z-index: 1;
+            width: 100%;
+            max-width: 400px;
         }
 
         .registration-form h2 {
             margin-bottom: 20px;
-            color: #2c3e50;
+            color: #f39c12;
         }
 
         .registration-form input {
@@ -57,6 +73,8 @@
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
         }
 
         .registration-form button {
@@ -77,6 +95,8 @@
 </head>
 
 <body>
+
+    <div class="header">MURMANSK</div>
 
     <div class="registration-form">
         <h2>Регистрация</h2>
